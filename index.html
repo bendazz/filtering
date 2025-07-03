@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kernel Filtering Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Convolutional Neural Network: Kernel Filtering</h1>
+        <p class="description">
+            Use the arrow buttons to move the kernel (3x3 frame) across the input matrix. 
+            Watch how the convolution operation fills the output matrix!
+        </p>
+        
+        <div class="controls">
+            <button id="resetBtn" class="control-btn reset-btn">Reset</button>
+            <button id="randomizeBtn" class="control-btn randomize-btn">New Random Data</button>
+        </div>
+
+        <div class="matrices-container">
+            <!-- Kernel Matrix -->
+            <div class="matrix-section">
+                <h2>Step 1: Kernel (3×3)</h2>
+                <p style="text-align: center; color: #7f8c8d; margin-bottom: 15px; font-size: 0.9em;">
+                    The filter that will be applied to the input
+                </p>
+                <div class="matrix" id="kernel-matrix"></div>
+            </div>
+
+            <!-- Input Matrix -->
+            <div class="matrix-section">
+                <h2>Step 2: Input Matrix (7×7)</h2>
+                <p style="text-align: center; color: #7f8c8d; margin-bottom: 15px; font-size: 0.9em;">
+                    Use arrow keys to move the red frame over different regions
+                </p>
+                <div class="matrix-wrapper">
+                    <div class="matrix" id="input-matrix"></div>
+                    <div class="kernel-overlay" id="kernel-overlay"></div>
+                </div>
+            </div>
+
+            <!-- Output Matrix -->
+            <div class="matrix-section">
+                <h2>Step 3: Output Matrix (5×5)</h2>
+                <p style="text-align: center; color: #7f8c8d; margin-bottom: 15px; font-size: 0.9em;">
+                    Results of the convolution operation
+                </p>
+                <div class="matrix" id="output-matrix"></div>
+            </div>
+
+            <!-- Connection Lines -->
+            <div class="connection-lines" id="connection-lines"></div>
+        </div>
+
+        <div class="navigation">
+            <div class="nav-row">
+                <button id="upBtn" class="nav-btn">↑</button>
+            </div>
+            <div class="nav-row">
+                <button id="leftBtn" class="nav-btn">←</button>
+                <div class="position-info">
+                    <span>Position: (<span id="pos-row">0</span>, <span id="pos-col">0</span>)</span>
+                </div>
+                <button id="rightBtn" class="nav-btn">→</button>
+            </div>
+            <div class="nav-row">
+                <button id="downBtn" class="nav-btn">↓</button>
+            </div>
+        </div>
+
+        <div class="calculation-info">
+            <h3>Current Calculation:</h3>
+            <div id="calculation-display">Move the kernel to see the calculation</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
